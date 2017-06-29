@@ -92,13 +92,23 @@ body {
 .app-name {
     font-family: 'Yellowtail', cursive;
     font-size: 40px;
-    color: #bcfffa;
+    color: #fcfcfc;
     text-shadow: 3px 5px 10px rgba(0,0,0,0.2);
 }
 .app-version {
     font-size: 14px;
     font-weight: 700;
 
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    background: #111;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .list-camera {
@@ -114,10 +124,43 @@ body {
         height: 0;
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
+    .details {
+        background: #fcfcfc;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+        display: flex;
+        h3 {
+            color: #222629;
+        }
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            font-size: 13px;
+            dd, dt {
+                flex: 0 0 50%;
+            }
+        }
+    }
+    .actions {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .btn {
+            display: block;
+        }
+    }
+    .info {
+        vertical-align: top;
+        padding: 20px;
+        flex: 1;
+    }
     .camera-stream {
         width: 400px;
-        height: auto;
-        display: inline-block;
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 
 }

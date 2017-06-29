@@ -2069,13 +2069,23 @@ body {
 .app-name {
   font-family: 'Yellowtail', cursive;
   font-size: 40px;
-  color: #bcfffa;
+  color: #fcfcfc;
   text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .app-version {
   font-size: 14px;
   font-weight: 700;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 5px;
+  background: #111;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .list-camera {
@@ -2094,10 +2104,59 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.list-camera .details {
+  background: #fcfcfc;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: flex;
+}
+
+.list-camera .details h3 {
+  color: #222629;
+}
+
+.list-camera .details dl {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+.list-camera .details dl dd, .list-camera .details dl dt {
+  -webkit-box-flex: 0;
+  flex: 0 0 50%;
+}
+
+.list-camera .actions {
+  padding: 30px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.list-camera .actions .btn {
+  display: block;
+}
+
+.list-camera .info {
+  vertical-align: top;
+  padding: 20px;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
 .list-camera .camera-stream {
   width: 400px;
+}
+
+.list-camera .camera-stream img {
+  width: 100%;
   height: auto;
-  display: inline-block;
 }
 
 .alert {
