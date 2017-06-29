@@ -1,0 +1,27 @@
+{
+  "name": "grace",
+  "version": "1.0.0",
+  "description": "ZoneMinder Skin",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodeStar/Grace.git"
+  },
+  "author": "Kode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KodeStar/Grace/issues"
+  },
+  "homepage": "https://github.com/KodeStar/Grace#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "laravel-elixir": "^6.0.0-15"
+  }
+}
