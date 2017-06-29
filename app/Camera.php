@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class Camera extends Model
 {
@@ -10,24 +12,22 @@ class Camera extends Model
 
     public static function list()
     {
-        $camera = (object)[ // placeholder
-            (object)[
-                'name' => 'Camera 1',
-                'description' => 'Living room camers',
-                'image' => 'img/camera1.png',
-            ],
-            (object)[
-                'name' => 'Camera 2',
-                'description' => 'Garden camers',
-                'image' => 'img/camera2.jpg',
-            ],
-            (object)[
-                'name' => 'Camera 3',
-                'description' => 'Som other camera',
-                'image' => 'img/camera3.jpg',
-            ],
-        ];
-        return $camera;
+        $cameras = [];
+        $client = new Client(); //GuzzleHttp\Client
+        $cameras = json_decode(file_get_contents('../resources/assets/camera.json'))->monitors;
+        /*$response = $client->get(
+            'http://192.168.0.20:8100/zm/api/monitors.json', 
+                [
+                    //'auth' =>  ['user', 'pass']
+                ]
+            );
+        if($response->getStatusCode() === 200) {
+            $body = $response->getBody();
+            $cameras = json_decode($body);
+            $cameras = $cameras->monitors;
+            //var_dump($result->getBody());
+        }*/
+        return $cameras;
     }
 
 }
