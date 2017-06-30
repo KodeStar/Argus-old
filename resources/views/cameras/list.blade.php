@@ -1,8 +1,8 @@
 <section class="list-camera">
     <div class="details">
-        <div class="camera-stream"><img class="" src="http://192.168.0.20:8100/zm/cgi-bin/nph-zms?mode=jpeg&scale=100&maxfps=4&monitor={{ $camera->Monitor->Id }}" /></div>
+        <div class="camera-stream"><img class="" src="<?php /*http://192.168.0.20:8100/zm/cgi-bin/nph-zms?mode=jpeg&scale=100&maxfps=4&monitor={{ $camera->id }}*/ ?>" /></div>
         <div class="info">
-            <h3>{{ $camera->Monitor->Name }}</h3>
+            <h3>{{ $camera->name }}</h3>
             <dl>
                 <dt>IP Address</dt>
                 <dd>192.168.10.1</dd>

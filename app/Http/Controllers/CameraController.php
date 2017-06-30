@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Camera;
+use App\Helpers\Contracts\CameraContract;
 
 class CameraController extends Controller
 {
@@ -16,9 +16,9 @@ class CameraController extends Controller
         //
     }
 
-    public function dashboard()
+    public function dashboard(CameraContract $camera)
     {
-        $data['cameras'] = Camera::list();
+        $data['cameras'] = $camera->list();
         return view('home', $data);
     }
 
