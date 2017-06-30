@@ -14,3 +14,6 @@
 $app->get('/', [
         'uses' => 'CameraController@dashboard'
 ]);
+$app->get('setup', [
+        'as' => 'setup', 'uses' => 'CameraController@setup'
+]);
