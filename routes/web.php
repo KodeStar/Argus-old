@@ -17,3 +17,4 @@ $app->get('/', [
 $app->get('setup', [
         'as' => 'setup', 'uses' => 'CameraController@setup'
 ]);
+$app->post('setup', 'CameraController@storesetup');

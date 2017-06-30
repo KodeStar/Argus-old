@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Contracts\CameraContract;
+use Illuminate\Http\Request;
+use App\Setting as Setting;
+use Illuminate\Support\Facades\Artisan;
 
 class CameraController extends Controller
 {
@@ -14,21 +17,15 @@ class CameraController extends Controller
     public function __construct()
     {
         parent::__construct();
-
+        //die(phpinfo());
     }
 
     public function dashboard(CameraContract $camera)
     {
         if(!$this->databaseReady()) return redirect('setup');
-        
+
         $data['cameras'] = $camera->list();
         return view('home', $data);
-    }
-
-    public function setup()
-    {
-        $data = [];
-        return view('setup', $data);
     }
 
     /**
@@ -44,7 +41,45 @@ class CameraController extends Controller
         }
         return false;
     
+    }
 
+    public function setup()
+    {
+        $data = [];
+        return view('setup', $data);
+    }
+
+
+    /**
+     * Store a new blog post.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function storesetup(Request $request)
+    {
+        $this->validate($request, [
+            'backend' => 'required',
+            'backend_location' => 'required',
+        ]);
+
+        if(!$this->databaseReady()) $this->createDatabase();
+
+        $backend = new Setting;
+        $backend->key = 'backend';
+        $backend->value = $request->input('backend');
+        $backend->save();
+        $backend_location = new Setting;
+        $backend_location->key = 'backend_location';
+        $backend_location->value = $request->input('backend_location');
+        $backend_location->save();
+
+        return redirect('/');
+    }
+
+    protected function createDatabase()
+    {
+        Artisan::call('migrate');
     }
 
 
