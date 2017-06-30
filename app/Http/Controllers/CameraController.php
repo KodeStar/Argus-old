@@ -58,10 +58,15 @@ class CameraController extends Controller
      */
     public function storesetup(Request $request)
     {
-        $this->validate($request, [
+        $validate = Validator::make($request->all(),$request, [
             'backend' => 'required',
             'backend_location' => 'required',
         ]);
+
+        if ($validate->fails())
+        {
+            return redirect()->back()->withErrors($validate->errors());
+        }
 
         if(!$this->databaseReady()) $this->createDatabase();
 
