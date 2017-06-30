@@ -34,9 +34,9 @@ class CameraController extends Controller
      */
     public function databaseReady()
     {
-        $path = realpath(base_path().'/database/database.sqlite');
+        $path = base_path().'/database/database.sqlite';
 
-        if(filesize($path) > 0) {
+        if(file_exists($path) && filesize($path) > 0) {
             return true;
         }
         return false;
@@ -79,6 +79,12 @@ class CameraController extends Controller
 
     protected function createDatabase()
     {
+        $path = base_path().'/database/database.sqlite';
+
+        if(!file_exists($path)) {
+            fopen($path, "w");
+        }
+
         Artisan::call('migrate');
     }
 
